@@ -2,11 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Single Day", cursive;
+  font-family: "Poor Story", cursive;
 }
 /* -------------------------------------------------- */
-.timer,
-.timer2 {
+.timer {
   z-index: 99;
   position: absolute;
   position: fixed;
@@ -15,15 +14,24 @@
   top: 24%;
   left: 0.7%;
   width: 170px;
-  height: 400px;
-  /* background-image: linear-gradient(135deg, #69ff97 10%, #00e4ff 100%); */
-  /* box-shadow: 0px 0px 5px thistle; */
-  background-size: cover;
+  height: 350px;
+  color: white;
+  box-shadow: 0px;
+  /* background-image: linear-gradient(135deg, #ffffff3d 10%, #fbffff 100%); */
+  box-shadow: 0px 0px 5px thistle;
+  /* background-size: cover; */
   border-radius: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  text-align: center;
   /* color: white; */
+}
+.timer.black {
+  color: black;
+}
+.timer.white {
+  color: white;
 }
 .Economic {
   margin-bottom: 50px;
@@ -35,8 +43,9 @@ header {
   top: 0;
   left: 0;
   z-index: 9999;
-  height: 110px;
+  height: 85px;
   width: 100%;
+  background-color: #ffffffcc;
 }
 
 .container {
@@ -64,7 +73,7 @@ header {
   /* transition: all 2s; */
   /* color: white; */
   font-weight: 550;
-  margin-top: 16px;
+  margin-top: 10px;
 }
 .menu ul {
   display: flex;
@@ -75,9 +84,10 @@ header {
   text-decoration: none;
   padding: 15px;
   font-size: 1.6rem;
+  font-weight: bold;
 }
 .menu ul li:hover {
-  font-size: 24px;
+  font-size: 2rem;
   /* font-weight: 300; */
 }
 .menu ul li a {
@@ -92,10 +102,6 @@ header {
   position: absolute;
   top: 70%;
   display: block;
-}
-.menu_appear {
-  color: white;
-  transition: all 2s;
 }
 /* -------------------------------------------------- */
 section {
@@ -114,9 +120,10 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  color: rgb(229, 236, 234);
 }
 .saying h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 .saying button {
   margin-top: 10px;
@@ -124,10 +131,17 @@ video {
   height: 50px;
   border-radius: 50%;
   background: none;
-  font-size: 1.3rem;
-  border: 1px solid;
+  font-size: 1.6rem;
+  border: 5px solid;
   box-shadow: 1px 0px 3px 0px;
+  cursor: pointer;
+  color: rgb(229, 236, 234);
 }
+.saying.vanish {
+  opacity: 0;
+  transition: all 0.3s;
+}
+/* -------------------------------------------------- */
 /* -------------------------------------------------- */
 .slide_show {
   list-style: none;
@@ -203,7 +217,7 @@ video {
   height: 300px;
   margin: 150px auto;
   position: relative;
-  box-shadow: 2px -2px 5px 0px rgb(46, 150, 117);
+  box-shadow: 2px -2px 5px 0px maroon;
   border-radius: 20px;
   overflow: hidden;
   color: white;
@@ -222,45 +236,76 @@ video {
 
 .content-3 {
   position: relative;
-  background-image: url("./images/background-I.jpg");
+  background-image: url("./images/cafe.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 .content-3-1 {
-  transition: all 3s;
   position: absolute;
   top: 23%;
-  left: 0;
+  left: 5%;
   /* background-color: blue; */
   color: white;
   width: 600px;
   height: 400px;
   opacity: 0;
 }
-.content-3-1.content_appear {
-  transition: all 3s;
+.content-3-1 h1 {
+  font-size: 4.5rem;
+}
+.content-3-1 h2 {
+  font-size: 2rem;
+}
+/* 
+.content-3-2 {
+  position: absolute;
+  top: 21%;
+  right: 0;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  width: 600px;
+  height: 70vh;
+  background-color: powderblue;
+}
+ */
+.content-3-1.content3-1_appear {
+  transition: all 1s;
   opacity: 1;
   transform: translateX(200px);
 }
-.content-3-1 h1 {
-  font-size: 60px;
-}
 .content-3-2 {
-  border: 10px solid cyan;
+  border-radius: 50%;
+  border: 7px solid palegoldenrod;
+  width: 400px;
+  height: 50vh;
+  background-position-x: -120px;
+  background-image: url(images/cake2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   position: absolute;
-  right: 10%;
-  top: 27%;
-  width: 200px;
-  height: 250px;
+  top: 16%;
+  right: 25%;
   opacity: 0;
-  transition: all 3s;
 }
-.content-3-2 img {
-  width: 100%;
-  height: 100%;
+.content-3-3 {
+  border-radius: 50%;
+  border: 7px solid palegoldenrod;
+  width: 400px;
+  height: 50vh;
+  background-position-x: -120px;
+  background-image: url(images/drink.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 40%;
+  right: 5%;
+  opacity: 0;
 }
-.content-3-2.content_appear_cafe {
+.content-3-2.content3-2_appear {
+  transition: all 0.3s 1s;
   opacity: 1;
-  transform: rotate(25deg);
-  transition: all 2s;
+}
+.content-3-3.content3-3_appear {
+  transition: all 0.5s 1.3s;
+  opacity: 1;
 }
