@@ -41,7 +41,7 @@ buttonClick.addEventListener("click", function(){
   saying.classList.add("vanish");
   setTimeout(movement, 700);
 })
-let movement = ()=> {
+let movement = () =>{
   window.scrollTo({
     top: section[1].offsetTop,
     behavior: "smooth"
@@ -67,8 +67,11 @@ setInterval(() => {
   var min2 = Math.ceil((gap_2 % (1000 * 60 * 60)) / (1000 * 60));
   var sec2 = Math.ceil((gap_2 % (1000 * 60)) / 1000);
 
-  document.querySelector(".timer .Economic").innerHTML = `<h2>초등임용고시</h2><br>D-${day}일 ${hour}시간 ${min}분 ${sec}초 남았습니다.`;
+
+
+  document.querySelector(".timer .Economic").innerHTML = `<img src="images/education.png" /><h2>초등임용고시</h2><br>D-${day}일 ${hour}시간 ${min}분 ${sec}초 남았습니다.`;
   document.querySelector(".timer .middle").innerHTML = `<h2>중등임용고시</h2><br>D-${day2}일 ${hour2}시간 ${min2}분 ${sec2}초 남았습니다.`;
+  // document.querySelector(".timer .middle").innerHTML = `<img src="images/police.png" /><h2>경찰고시</h2><br>D-${day2}일 ${hour2}시간 ${min2}분 ${sec2}초 남았습니다.`;
 }, 1000);
 // -------------------------------------------------
 /*let prev = document.querySelector(".prev");

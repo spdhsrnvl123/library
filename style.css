@@ -14,7 +14,7 @@
   top: 24%;
   left: 0.7%;
   width: 170px;
-  height: 350px;
+  height: 500px;
   color: white;
   box-shadow: 0px;
   /* background-image: linear-gradient(135deg, #ffffff3d 10%, #fbffff 100%); */
@@ -26,6 +26,9 @@
   /* align-items: center; */
   text-align: center;
   /* color: white; */
+}
+.timer img {
+  width: 150px;
 }
 .timer.black {
   color: black;
@@ -108,11 +111,11 @@ section {
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  border-top: 1px dotted;
   position: relative;
 }
 video {
   width: 100%;
+  filter: drop-shadow(8px 8px 10px green);
 }
 .saying {
   position: absolute;
@@ -137,6 +140,12 @@ video {
   cursor: pointer;
   color: rgb(229, 236, 234);
 }
+.saying button:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: cornflowerblue;
+  width: 120px;
+  height: 70px;
+}
 .saying.vanish {
   opacity: 0;
   transition: all 0.3s;
@@ -144,12 +153,16 @@ video {
 /* -------------------------------------------------- */
 /* -------------------------------------------------- */
 .slide_show {
+  border: 7px solid rgb(224, 245, 244);
+  border-radius: 130px;
   list-style: none;
   width: 1150px;
-  height: 290px;
-  /* background-color: rgba(101, 101, 175, 0.537); */
+  height: 300px;
+  background-image: url(images/white.jpg);
   position: relative;
-  top: 13%;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  top: 11%;
   left: 13%;
   overflow-x: hidden;
   /* margin-right: 60px; */
@@ -164,6 +177,12 @@ video {
   left: -31px;
   transition: all 0.3s ease-in-out;
   animation: slide-ani 9s ease-in-out infinite alternate;
+  /* background-image: url(images/snow.jpg); */
+  /* background-size: cover; */
+}
+
+.show ul {
+  background-color: black;
 }
 @keyframes slide-ani {
   0% {
@@ -183,10 +202,11 @@ video {
   /* margin-right: 50px; */
   list-style: none;
   width: 100%;
-  height: 90%;
+  height: 88%;
   border-radius: 20px;
   box-shadow: 2px -2px 4px maroon;
   position: relative;
+  cursor: pointer;
 }
 .slide_show li img {
   border-radius: 20px;
@@ -194,7 +214,30 @@ video {
   width: 100%;
   height: 100%;
 }
-.slide_show .show li:nth-child(1) {
+.show .caption {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.caption p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 140%);
+}
+.show li:hover .caption {
+  opacity: 1;
+}
+.sh .slide_show .show li:nth-child(1) {
   margin-left: 60px;
 }
 
@@ -209,7 +252,6 @@ video {
   font-size: 3.5rem;
   color: white;
   transform: translate(-50%, -50%);
-  cursor: pointer;
 }
 .class_detail {
   /* border: 2px solid; */
@@ -220,21 +262,55 @@ video {
   box-shadow: 2px -2px 5px 0px maroon;
   border-radius: 20px;
   overflow: hidden;
-  color: white;
+  /* color: white; */
 }
-.class_detail img {
+.class_detail_img.Space_0 {
+  background-image: url(images/Space_0.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 100%;
+}
+.class_detail_img.Space_1 {
+  background-image: url(images/Space_1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 100%;
+}
+.class_detail_img.Space_2 {
+  background-image: url(images/Space_2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 100%;
+}
+.class_detail_img.Space_3 {
+  background-image: url(images/Space_3.jfif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 100%;
+}
+.class_detail_img.Space_4 {
+  background-image: url(images/Space_4.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 400px;
   height: 100%;
 }
 .class_detail_text {
   position: absolute;
-  top: 30%;
-  left: 55%;
+  top: 20%;
+  left: 45%;
   font-size: 1.3rem;
 }
-/* -------------------------------------------------- */
-
+.class_detail_text {
+  position: absolute;
+  top: 20%;
+}
 .content-3 {
+  font-family: "Poor Story", cursive;
   position: relative;
   background-image: url("./images/cafe.jpg");
   background-size: cover;
@@ -244,7 +320,7 @@ video {
   position: absolute;
   top: 23%;
   left: 5%;
-  /* background-color: blue; */
+  background-size: cover;
   color: white;
   width: 600px;
   height: 400px;
@@ -256,18 +332,17 @@ video {
 .content-3-1 h2 {
   font-size: 2rem;
 }
-/* 
+}
+.content-3-1 h1 {
+  font-size: 4.5rem;
+}
+.content-3-1 h2 {
+  font-size: 2rem;
+}
 .content-3-2 {
   position: absolute;
   top: 21%;
-  right: 0;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
-  width: 600px;
-  height: 70vh;
-  background-color: powderblue;
 }
- */
 .content-3-1.content3-1_appear {
   transition: all 1s;
   opacity: 1;
@@ -302,10 +377,10 @@ video {
   opacity: 0;
 }
 .content-3-2.content3-2_appear {
-  transition: all 0.3s 1s;
+  transition: all 0.3s 0.7s;
   opacity: 1;
 }
 .content-3-3.content3-3_appear {
-  transition: all 0.5s 1.3s;
+  transition: all 0.5s 1s;
   opacity: 1;
 }
