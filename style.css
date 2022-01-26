@@ -152,6 +152,12 @@ video {
 }
 /* -------------------------------------------------- */
 /* -------------------------------------------------- */
+.content-2{
+  background:linear-gradient(rgba(0.))
+  background-image: url(images/white.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .slide_show {
   border: 7px solid rgb(224, 245, 244);
   border-radius: 130px;
