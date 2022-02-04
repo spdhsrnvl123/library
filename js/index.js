@@ -6,21 +6,62 @@ window.onload = function () {
   var content_3_2 = document.querySelector(".content-3-2");
   var content_3_3 = document.querySelector(".content-3-3");
   var timer = document.querySelector(".timer");
+  
+  var pointBtn = document.querySelectorAll(".pointWrap li");
+  var pageNum = 0;  
+
+  //네비게이션바
+/*for (var i = 0; i < pointBtn.length; i++){
+  (function (idx) {
+    pointBtn[idx].onclick = function () {
+      pageNum = idx;
+      window.scrollTo({
+        top: section[pageNum].offsetTop,
+        behavior: 'smooth'
+      })
+    }
+  })(i);
+}*/
+ /*
+  for (let i = 0; i < pointBtn.length; i++){
+    pointBtn[i].onclick = function(){
+      pageNum = i;
+      window.scrollTo({
+        top: section[pageNum].offsetTop,
+        behavior:'smooth'
+      })
+    }
+  }*/
+  
+  for (let i = 0; i < pointBtn.length; i++){
+    pointBtn[i].addEventListener("click", function () {
+      pageNum = i;
+      window.scrollTo({
+        top: section[pageNum].offsetTop,
+        behavior:'smooth'
+      })
+    })
+  }
 
 window.addEventListener("scroll",() => {
-  section1_scroll()
-  section2_scroll()
+  section1_scroll();
+  section2_scroll();
 })
+  
   //section[1] 스크롤 이벤트(timer)
   function section1_scroll() {
     const scroll = window.scrollY;
-      if (scroll >= section[1].offsetTop && scroll <= section[1].offsetTop + section[1].offsetHeight) {
+    if (scroll >= section[1].offsetTop - window.innerHeight / 2 && scroll <= section[1].offsetTop + section[1].offsetHeight - window.innerHeight/2) {
+        timer.classList.remove("display");
         timer.classList.add("black");
-    } else {
-        timer.classList.remove("black")
+      }else if (scroll >= section[0].offsetTop - window.innerHeight/2 && scroll <= section[0].offsetTop + section[0].offsetHeight - window.innerHeight/2) {
+        timer.classList.remove("display");
+        timer.classList.remove("black");
+      }else if (scroll >= section[2].offsetTop - window.innerHeight /2 && scroll <= section[2].offsetTop + section[2].offsetHeight - window.innerHeight/2) {
+        timer.classList.add("display");
     }
   }
-  section1_scroll()
+  section1_scroll();
   //section[2] 스크롤 이벤트
   function section2_scroll() {
     const scroll = window.scrollY;
@@ -30,16 +71,16 @@ window.addEventListener("scroll",() => {
       content_3_3.classList.add("content3-3_appear");
     }
   }
-    section2_scroll()
+  section2_scroll();
 
 // -------------------------------------------------
 //버튼 클릭시 명언 사라짐
 let saying = document.querySelector(".saying");
 let buttonClick = document.getElementsByTagName("button")[0];
 
-buttonClick.addEventListener("click", function(){
+buttonClick.addEventListener("click",function(){
   saying.classList.add("vanish");
-  setTimeout(movement, 700);
+  setTimeout(movement, 600);
 })
 let movement = () =>{
   window.scrollTo({
@@ -67,37 +108,7 @@ setInterval(() => {
   var min2 = Math.ceil((gap_2 % (1000 * 60 * 60)) / (1000 * 60));
   var sec2 = Math.ceil((gap_2 % (1000 * 60)) / 1000);
 
-
-
-  document.querySelector(".timer .Economic").innerHTML = `<img src="images/education.png" /><h2>초등임용고시</h2><br>D-${day}일 ${hour}시간 ${min}분 ${sec}초 남았습니다.`;
-  document.querySelector(".timer .middle").innerHTML = `<h2>중등임용고시</h2><br>D-${day2}일 ${hour2}시간 ${min2}분 ${sec2}초 남았습니다.`;
-  // document.querySelector(".timer .middle").innerHTML = `<img src="images/police.png" /><h2>경찰고시</h2><br>D-${day2}일 ${hour2}시간 ${min2}분 ${sec2}초 남았습니다.`;
+  document.querySelector(".timer .Economic").innerHTML = `<img src="images/study.jpeg" style= "border-radius : 50%" /><h2>Programming Test</h2><br>D-${day}일 ${hour}시간 ${min}분 ${sec}초 남았습니다.`;
+  document.querySelector(".timer .middle").innerHTML = `<h2>Programming Test2</h2><br>D-${day2}일 ${hour2}시간 ${min2}분 ${sec2}초 남았습니다.`;
 }, 1000);
-// -------------------------------------------------
-/*let prev = document.querySelector(".prev");
-let next = document.querySelector(".next");
-let show = document.querySelector(".show");
-let show_li = document.querySelectorAll(".show li");
-
-let li_length = show_li.length;
-let slideCount = 0;
-
-function move(num) {
-  show.style.transform = `translate(${-num * 500}px)`
-  slideCount = num;
 }
-
-prev.addEventListener("click", () => {
-  if (slideCount !== 0) {
-    move(slideCount - 1);
-  }
-})
-
-next.addEventListener("click", () => {
-  if (slideCount !== li_length - 1) {
-    move(slideCount+1)
-  }
-})*/
-// -------------------------------------------------  
-}
-
